@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Money Orders Dashboard</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Money Ordering Actions</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Transaction History</h2>
+            <table id="transaction-history" class="table">
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Deposit Amount</div>
+                <div class="card-body">
+                    <form id="deposit-form" action="/dashboard/deposit" method="POST">
+                        <select name="username">
+                            <option value="user1">User 1</option>
+                            <option value="user2">User 2</option>
+                            <option value="user3">User 3</option>
+                        </select>
+                        <input type="number" name="amount" placeholder="Enter amount">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Withdraw Amount</div>
+                <div class="card-body">
+                    <form id="withdraw-form" action="/dashboard/withdraw" method="POST">
+                        <select name="username">
+                            <option value="user1">User 1</option>
+                            <option value="user2">User 2</option>
+                            <option value="user3">User 3</option>
+                        </select>
+                        <input type="number" name="amount" placeholder="Enter amount">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Transfer Amount</div>
+                <div class="card-body">
+                    <form id="transfer-form" action="/dashboard/transfer" method="post">
+                        <select name="username1">
+                            <option value="user1">User 1</option>
+                            <option value="user2">User 2</option>
+                            <option value="user3">User 3</option>
+                        </select>
+                        <select name="username2">
+                            <option value="user1">User 1</option>
+                            <option value="user2">User 2</option>
+                            <option value="user3">User 3</option>
+                        </select>
+                        <input type="number" name="amount" placeholder="Enter amount">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="client.js"></script>
+</body>
+</html>
