@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body style="font-family: Arial, sans-serif;">
+<h1 style="text-align: center;">Admin Dashboard</h1>
+<div style="display: flex; justify-content: space-around;">
+    <div>
+        <h2>Bank Balance</h2>
+        <p id="bankBalance" style="font-size: 24px;">Loading...</p>
+    </div>
+    <div>
+        <h2>Total Amount Sent</h2>
+        <p id="totalSent" style="font-size: 24px;">Loading...</p>
+    </div>
+    <div>
+        <h2>Total Amount Received</h2>
+        <p id="totalReceived" style="font-size: 24px;">Loading...</p>
+    </div>
+    <div>
+        <h2>Received in Last Hour</h2>
+        <p id="receivedLastHour" style="font-size: 24px;">Loading...</p>
+    </div>
+    <div>
+        <h2>Sent in Last Hour</h2>
+        <p id="sentLastHour" style="font-size: 24px;">Loading...</p>
+    </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="adminPage.js"></script>
+</body>
+</html>

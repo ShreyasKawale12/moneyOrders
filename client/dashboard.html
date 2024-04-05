@@ -4,8 +4,34 @@
     <title>Money Orders Dashboard</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            background-image: url('giphy2.gif');
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Money Orders</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacts</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a id="logout" class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container">
     <h1>Money Ordering Actions</h1>
     <div class="row">
@@ -18,6 +44,7 @@
                     <th>From</th>
                     <th>To</th>
                     <th>Amount</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,13 +56,13 @@
             <div class="card">
                 <div class="card-header">Deposit Amount</div>
                 <div class="card-body">
-                    <form id="deposit-form" action="/dashboard/deposit" method="POST">
-                        <select name="username">
+                    <form id="deposit-form">
+                        <select name="username" id="username">
                             <option value="user1">User 1</option>
                             <option value="user2">User 2</option>
                             <option value="user3">User 3</option>
                         </select>
-                        <input type="number" name="amount" placeholder="Enter amount">
+                        <input type="number" name="amount" id="amount" placeholder="Enter amount" required>
                         <button type="submit">Submit</button>
                     </form>
                 </div>
@@ -43,13 +70,13 @@
             <div class="card">
                 <div class="card-header">Withdraw Amount</div>
                 <div class="card-body">
-                    <form id="withdraw-form" action="/dashboard/withdraw" method="POST">
-                        <select name="username">
+                    <form id="withdraw-form">
+                        <select name="username" id="withdraw-username">
                             <option value="user1">User 1</option>
                             <option value="user2">User 2</option>
                             <option value="user3">User 3</option>
                         </select>
-                        <input type="number" name="amount" placeholder="Enter amount">
+                        <input type="number" name="amount" id="withdraw-amount" placeholder="Enter amount" required>
                         <button type="submit">Submit</button>
                     </form>
                 </div>
@@ -57,18 +84,18 @@
             <div class="card">
                 <div class="card-header">Transfer Amount</div>
                 <div class="card-body">
-                    <form id="transfer-form" action="/dashboard/transfer" method="post">
-                        <select name="username1">
+                    <form id="transfer-form">
+                        <select id="transfer-username1" name="username1">
                             <option value="user1">User 1</option>
                             <option value="user2">User 2</option>
                             <option value="user3">User 3</option>
                         </select>
-                        <select name="username2">
+                        <select id="transfer-username2" name="username2">
                             <option value="user1">User 1</option>
                             <option value="user2">User 2</option>
                             <option value="user3">User 3</option>
                         </select>
-                        <input type="number" name="amount" placeholder="Enter amount">
+                        <input type="number" id="transfer-amount" name="amount" placeholder="Enter amount">
                         <button type="submit">Submit</button>
                     </form>
                 </div>
@@ -76,6 +103,6 @@
         </div>
     </div>
 </div>
-<script src="client.js"></script>
+<script src="dashboard.js"></script>
 </body>
 </html>
