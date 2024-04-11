@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { dirname } from'path';
 import { fileURLToPath } from 'url';
+import {runBcrypt} from '../bcrypt.js'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const router = express.Router()
@@ -35,4 +36,16 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/dashboard/signup',async (req,res)=>{
+    console.log('on the signup page')
+    res.sendFile(path.join(__dirname, '../../client/signup.html'))
+})
+
+router.post('/dashboard/signup', async (req, res)=>{
+    let {username, password}= req.body
+    console.log(username)
+    const hashedPassword = await runBcrypt(password)
+    await q.createNewUser(username, hashedPassword)
+    res.status(200).send()
+})
 export default router

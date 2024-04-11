@@ -1,13 +1,9 @@
 import bcrypt from 'bcrypt';
 
-async function runBcrypt() {
-    const password = '123';
-
+export async function runBcrypt(password) {
     const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-    console.log('Hashed password:', hashedPassword);
-
+    // console.log('Hashed password:', hashedPassword);
+    return await bcrypt.hash(password, saltRounds)
 }
 
-runBcrypt().catch(console.error);
+

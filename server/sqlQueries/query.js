@@ -2,6 +2,10 @@
 import { pool } from '../configure.js';
 // import {query} from "express";
 
+export async function createNewUser(username, password){
+    await pool.query(`insert into users(username, password, designation, balance) values($1,$2,'user',1000)`, [username, password])
+
+}
 export async function getUserByUsername(username) {
     const result = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
     // console.log(result)
